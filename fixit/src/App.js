@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          Git Push test
+          Git Push test 2
         </p>
       </header>
     </div>
