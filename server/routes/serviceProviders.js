@@ -1,13 +1,19 @@
 const express = require('express')
+const {
+     addServiceProviders, 
+     getAllServiceProviders, 
+     getaServiceProvider
+    } = require('../controllers/serviceProvidersController')
 
 const router = express.Router()
 
-router.get('/', (req, res) => {
-    res.json({mssg: "Get all service providers"})
-})
+// Get all service providers
+router.get('/', getAllServiceProviders)
 
-router.get('/:id', (req, res) => {
-    res.json({mssg: "Get a single service provider"})
-})
+// Add service providers
+router.post('/', addServiceProviders)
+
+// Get a single service providers
+router.get('/:id', getaServiceProvider)
 
 module.exports = router

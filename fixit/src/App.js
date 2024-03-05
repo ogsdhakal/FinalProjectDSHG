@@ -1,16 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Navbar from './components/Navbar'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import SignUp from './pages/SignUp'
+import Login from './pages/Login'
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Git Push test 2
-        </p>
-      </header>
+    <div className='App'>
+        <BrowserRouter>
+            <Navbar/>
+            <Routes>
+                <Route path='/signup' element={<SignUp/>}/>
+                <Route path='/login' element={<Login/>}/>
+            </Routes>
+        </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

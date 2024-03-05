@@ -3,6 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const serviceProvidersRoutes = require('./routes/serviceProviders')
+const userRoutes = require('./routes/user')
 
 // express app
 const app = express()
@@ -14,8 +15,16 @@ app.use((req, res, next) => {
     next()
 })
 
+// cors middleware
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+});
 // routes
 app.use('/api/serviceProviders', serviceProvidersRoutes)
+app.use('/api/user', userRoutes)
 
 //connect to the database
 mongoose.connect(process.env.MONGO_URI)
