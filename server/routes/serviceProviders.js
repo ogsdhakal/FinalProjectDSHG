@@ -5,7 +5,12 @@ const {
      getaServiceProvider
     } = require('../controllers/serviceProvidersController')
 
+const requireAuth = require('../middleware/requireAuth')
+
 const router = express.Router()
+
+// require validation for user
+router.use(requireAuth)
 
 // Get all service providers
 router.get('/', getAllServiceProviders)
